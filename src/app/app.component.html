@@ -1,0 +1,27 @@
+<hello name="{{ name }}"></hello>
+<p>
+  CSV File
+</p>
+
+<input type="file" name="files" class="form-control"
+                     #uploads  (change)="onChange(uploads.files)" multiple
+                     value="process"/>
+
+<div>
+  <table class="table table-responsive table-hover" border="1" style="width : 50%;">
+    <tr>
+      <th><a href (click)="sortTable('firstName')">First Name</a></th>
+      <th><a href (click)="sortTable('surName')">Sur Name</a></th>
+      <th><a href (click)="sortTable('issueCount')">Issue Count</a></th>
+      <th><a href (click)="sortTable('dateOfBirth')">Date Of Birth</a></th>
+    </tr>
+
+    <tr *ngFor="let user of users | sortingUsers:path:order">
+      <td> {{user.firstName}} </td>
+      <td> {{user.surName}} </td>
+      <td> {{user.issueCount}} </td>
+      <td> {{user.dateOfBirth}} </td>
+    </tr>
+  </table>
+
+</div>
